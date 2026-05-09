@@ -1,0 +1,22 @@
+<h1> {{ title }} </h1>
+<a routerLink="/login">Go to Login </a> <br>
+
+<button (click)="showMessage()">
+    Click Me</button>
+
+<img [src]="imageUrl" width="150">
+
+<h2> {{ count }} </h2>
+<button (click)="icrement()">
+    Icrement
+</button>
+
+@if(isLoggedIn){
+    <h2>Welcom User</h2>
+} @else {
+    <h2>Please Login</h2>
+}
+
+@for (post of posts; track post){
+    <h3> {{ post }} </h3>
+}
