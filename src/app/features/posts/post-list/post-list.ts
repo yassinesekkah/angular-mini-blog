@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
+
 @Component({
   selector: 'app-post-list',
   imports: [RouterLink],
@@ -24,9 +25,13 @@ export class PostList {
 
   isLoggedIn = true;
 
+  showPosts = false;
+
   posts = [
     'Angular',
     'Spring Boot',
     'Jwt Security'
   ];
+
+  
 }

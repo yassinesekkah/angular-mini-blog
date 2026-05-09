@@ -17,6 +17,11 @@
     <h2>Please Login</h2>
 }
 
-@for (post of posts; track post){
-    <h3> {{ post }} </h3>
+@if(showPosts){
+    @for(post of posts; track post){
+        <h2>{{ post }}</h2>
+    }
+}@else {
+    <h2>No Posts Available</h2>
 }
+
