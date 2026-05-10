@@ -1,2 +1,17 @@
-<h1>{{ city }}</h1>
+<h1 class="title">Posts</h1>
 
+<div class="posts-container">
+
+  @for (post of posts(); track post.id) {
+
+    <div class="post-card">
+
+      <h2>{{ post.title }}</h2>
+
+      <p>{{ post.content }}</p>
+
+    </div>
+
+  }
+
+</div>

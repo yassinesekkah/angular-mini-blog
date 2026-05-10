@@ -29,6 +29,8 @@ export class Login {
 
           console.log(response.token);
 
+          localStorage.setItem('token', response.token);
+
           this.message.set('success');
         },
         error: (error) => {
