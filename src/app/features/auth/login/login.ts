@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { Auth } from '../../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -10,33 +11,33 @@ import { FormsModule } from '@angular/forms';
 })
 export class Login {
 
-  //for form
   email = '';
   password = '';
   message = '';
 
-  login(){
-    if(!this.email || !this.password){
+  constructor(private authService: Auth) {
 
-      this.message = "All fields are required";
-      return;
-    }
-
-    if(!this.email.includes("@")){
-      this.message = "Enter a valid email";
-      return
-    }
-
-    if(this.password.length < 7){
-
-      this.message = "Password too short";
-      return;
-    }
-
-    console.log(this.email);
-    console.log(this.password);
-    this.message = 'Login success';
   }
+
+  login() {
+
+    this.authService.login({
+
+      email: this.email,
+      password: this.password
+
+    }).subscribe((response: any) => {
+
+      console.log(response);
+
+      localStorage.setItem(
+        'token', response.token
+      );
+
+      this.message = 'Login Success';
+
+    });
+
+  }
+
 }
-
-
