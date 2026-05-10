@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../../services/auth';
+import { LoginResponse } from '../../../models/login-response';
 
 @Component({
   selector: 'app-login',
@@ -10,34 +11,33 @@ import { Auth } from '../../../services/auth';
   styleUrl: './login.css',
 })
 export class Login {
-
   email = '';
   password = '';
-  message = '';
+  message = signal('');
 
-  constructor(private authService: Auth) {
+  constructor(private authService: Auth) {}
 
+  login(): void {
+    this.authService
+      .login({
+        email: this.email,
+        password: this.password,
+      })
+      .subscribe({
+        next: (response: LoginResponse) => {
+          console.log(response);
+
+          console.log(response.token);
+
+          this.message.set('success');
+        },
+        error: (error) => {
+          console.log(error);
+
+          setTimeout(() => {
+            this.message.set('Invalid email or password');
+          });
+        },
+      });
   }
-
-  login() {
-
-    this.authService.login({
-
-      email: this.email,
-      password: this.password
-
-    }).subscribe((response: any) => {
-
-      console.log(response);
-
-      localStorage.setItem(
-        'token', response.token
-      );
-
-      this.message = 'Login Success';
-
-    });
-
-  }
-
 }

@@ -9,29 +9,8 @@ import { RouterLink } from "@angular/router";
   styleUrl: './post-list.css',
 })
 export class PostList {
-  title = 'Angular Posts';
 
-  showMessage(){
-    alert('Hello Angular');
-  }
+  city = "fes";
 
-  imageUrl = 'https://angular.dev/assets/images/press-kit/angular_icon_gradient.gif';
 
-  count = 0;
-
-  icrement(){
-    this.count++;
-  }
-
-  isLoggedIn = true;
-
-  showPosts = false;
-
-  posts = [
-    'Angular',
-    'Spring Boot',
-    'Jwt Security'
-  ];
-
-  
 }
