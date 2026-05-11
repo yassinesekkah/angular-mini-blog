@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h1>Create Post</h1>
+
+    <input 
+        type="text"
+        placeholder="Title"
+        [(ngModel)]="title" 
+    >
+
+    <textarea 
+        placeholder="Content"
+        [(ngModel)]="content" 
+    ></textarea>
+
+    <button (click)="createPost()">
+        Create
+    </button>
+
+    <h3>{{ message() }}</h3>
+</div>

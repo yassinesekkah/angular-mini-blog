@@ -16,4 +16,12 @@ export class Post {
       `${this.apiUrl}?page=0&size=5`
     );
   }
+
+  createPost(data: any){
+
+    return this.http.post(
+      this.apiUrl,
+      data
+    );
+  }
 }
