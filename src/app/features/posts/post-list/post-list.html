@@ -20,9 +20,11 @@
         Delete
       </button>
 
-      <button (click)="updatePost(post.id)">
-        Update
-      </button>
+      <a [routerLink]="['/update-post', post.id]">
+        <button>
+          Update
+        </button>
+      </a>
 
     </div>
 

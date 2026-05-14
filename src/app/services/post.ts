@@ -31,4 +31,11 @@ export class Post {
       `${this.apiUrl}/${id}`
     );
   }
+
+  getPostById(id: number){
+
+    return this.http.get(
+      `${this.apiUrl}/${id}`
+    );
+  }
 }
