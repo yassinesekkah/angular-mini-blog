@@ -42,5 +42,31 @@ export class PostList implements OnInit {
   }
 
 
+  deletePost(id: number): void {
+
+    this.postService.deletePost(id)
+      .subscribe({
+
+        next:()=> {
+
+          this.posts.set(
+
+            this.posts().filter(
+              post => post.id !== id
+            )
+          );
+        },
+
+        error: (error: any) => {
+          console.log(error);
+        }
+      })
+  }
+
+  updatePost(id: number): void{
+    
+  }
+
+
 
 }

@@ -2,6 +2,12 @@
 
 <div class="posts-container">
 
+  <a routerLink="/create-post">
+    <button>
+      Create Post
+    </button>
+  </a>
+
   @for (post of posts(); track post.id) {
 
     <div class="post-card">
@@ -9,6 +15,14 @@
       <h2>{{ post.title }}</h2>
 
       <p>{{ post.content }}</p>
+
+      <button (click)="deletePost(post.id)">
+        Delete
+      </button>
+
+      <button (click)="updatePost(post.id)">
+        Update
+      </button>
 
     </div>
 

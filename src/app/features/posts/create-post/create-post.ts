@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Post } from '../../../services/post';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './create-post.html',
   styleUrl: './create-post.css',
 })
@@ -20,7 +20,11 @@ export class CreatePost {
 
   createPost(): void {
 
-    console.log("clicked");
+    if(!this.title || !this.content){
+      this.message.set("All field are required");
+      return;
+    }
+
     this.postService.createPost({
 
       title: this.title,

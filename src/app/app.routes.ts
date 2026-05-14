@@ -3,6 +3,7 @@ import { Login } from './features/auth/login/login';
 import { Register } from './features/auth/register/register';
 import { PostList } from './features/posts/post-list/post-list';
 import { CreatePost } from './features/posts/create-post/create-post';
+import { UpdatePost } from './features/posts/update-post/update-post';
 
 
 export const routes: Routes = [
@@ -30,5 +31,10 @@ export const routes: Routes = [
     {
         path: 'create-post',
         component: CreatePost
+    },
+
+    {
+        path: 'update-post/:id',
+        component: UpdatePost
     }
 ];

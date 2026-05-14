@@ -29,8 +29,14 @@ textarea {
 
 button {
 
-  padding: 10px;
+  padding: 10px 25px;
 
   cursor: pointer;
+
+}
+
+.buttonContainer{
+  display: flex;
+  gap: .5rem;
 
 }

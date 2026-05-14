@@ -24,4 +24,11 @@ export class Post {
       data
     );
   }
+
+  deletePost(id: number){
+
+    return this.http.delete(
+      `${this.apiUrl}/${id}`
+    );
+  }
 }

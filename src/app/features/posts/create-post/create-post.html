@@ -13,9 +13,19 @@
         [(ngModel)]="content" 
     ></textarea>
 
-    <button (click)="createPost()">
-        Create
-    </button>
+    <div class="buttonContainer">
+        <button (click)="createPost()">
+            Create
+        </button>
+
+        <a routerLink="/posts">
+            <button>
+                Cancel
+            </button>
+        </a> 
+    </div>
+
+    
 
     <h3>{{ message() }}</h3>
 </div>
